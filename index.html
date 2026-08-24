@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أرقام استقبال التحويل</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --main-red: #c90b0b;
+            --main-black: #000000;
+            --instapay-color: #552d82; /* لون إنستاباي البنفسجي */
+            --bg-color: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #e0e0e0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 480px;
+            padding: 30px 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-radius: 15px;
+            position: relative;
+            background-image: radial-gradient(#e0e0e0 2px, transparent 2px);
+            background-size: 25px 25px;
+            border: 2px solid #eee;
+        }
+
+        /* --- الجزء العلوي --- */
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .side-logos {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            width: 90px;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: auto;
+            max-height: 60px;
+            object-fit: contain;
+        }
+
+        .round-logo {
+            border-radius: 50%;
+            border: 2px solid #eee;
+            width: 60px;
+            height: 60px;
+        }
+
+        .avatar-container {
+            position: relative;
+        }
+
+        .avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid var(--main-black);
+            padding: 5px;
+            object-fit: cover;
+            background-color: white;
+            box-shadow: 0 0 0 2px var(--main-red);
+        }
+
+        /* --- عنوان الصفحة --- */
+        .title-wrapper {
+            position: relative;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .title-wrapper::before, .title-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 15%;
+            height: 2px;
+            background-color: var(--main-red);
+        }
+        .title-wrapper::before { right: 0; }
+        .title-wrapper::after { left: 0; }
+
+        .title {
+            background-color: var(--main-black);
+            color: white;
+            display: inline-block;
+            padding: 8px 35px;
+            border-radius: 30px;
+            font-size: 24px;
+            font-weight: 900;
+            position: relative;
+            z-index: 2;
+        }
+
+        .title span { color: var(--main-red); }
+
+        /* --- زرار إنستاباي الجديد --- */
+        .instapay-btn {
+            background-color: #ffffff;
+            color: var(--instapay-color);
+            border: 2px solid var(--instapay-color);
+            font-family: 'Cairo', sans-serif;
+            font-weight: 900;
+            font-size: 20px;
+            text-align: center;
+            padding: 10px;
+            border-radius: 12px;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .instapay-btn:hover {
+            background-color: var(--instapay-color);
+            color: #ffffff;
+            transform: scale(1.02);
+        }
+
+        .instapay-btn img {
+            height: 25px;
+            object-fit: contain;
+        }
+
+        /* --- قسم الأرقام --- */
+        .numbers-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .number-row {
+            display: flex;
+            align-items: center;
+            direction: ltr;
+            gap: 10px;
+        }
+
+        .index {
+            background-color: var(--main-black);
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .phone-number {
+            background: linear-gradient(to bottom, #e00000, #990000);
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            flex-grow: 1;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 8px;
+            box-shadow: inset 0px 3px 5px rgba(255,255,255,0.4), inset 0px -4px 5px rgba(0,0,0,0.4), 0 4px 6px rgba(0,0,0,0.2);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            z-index: 1;
+        }
+
+        /* زرار ابعت التفاعلي للمحافظ */
+        .send-btn {
+            background-color: white;
+            color: var(--main-red);
+            border: 1px solid #ddd;
+            font-family: 'Cairo', sans-serif;
+            font-weight: bold;
+            font-size: 18px;
+            height: 46px;
+            padding: 0 15px 0 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: -35px;
+            position: relative;
+            z-index: 2;
+            box-shadow: -4px 0px 10px rgba(0,0,0,0.3), 0px 3px 5px rgba(0,0,0,0.1);
+            direction: rtl;
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .send-btn:hover {
+            background-color: #f9f9f9;
+            transform: scale(1.03);
+            color: #a00000;
+        }
+        .send-btn:active { 
+            transform: scale(0.95);
+        }
+
+        /* --- الجزء السفلي (الباركود) --- */
+        .bottom-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fcfcfc;
+            border: 2px solid #eee;
+            border-radius: 15px;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            direction: rtl;
+        }
+
+        .qr-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 2px solid #ddd;
+        }
+
+        .scan-text {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            direction: ltr;
+        }
+
+        .scan-text p {
+            margin: 0;
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--main-black);
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .scan-icon {
+            font-size: 35px;
+            color: var(--main-red);
+        }
+
+        .arrow-icon {
+            font-size: 24px;
+            color: var(--main-red);
+        }
+
+        .footer-text {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--main-black);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="top-header">
+            <div class="side-logos">
+                <img src="sali.png" alt="صلي على النبي" class="logo-img round-logo">
+                <img src="etisalat.png" alt="اتصالات" class="logo-img">
+            </div>
+
+            <div class="avatar-container">
+                <img src="avatar.png" alt="صورتي" class="avatar">
+            </div>
+
+            <div class="side-logos">
+                <img src="instapay.png" alt="إنستاباي" class="logo-img">
+                <img src="vodafone.png" alt="فودافون" class="logo-img">
+            </div>
+        </div>
+
+        <div class="title-wrapper">
+            <div class="title">أرقام <span>استقبال</span> التحويل</div>
+        </div>
+
+        <!-- زرار إنستاباي المباشر -->
+        <a href="https://instapay.eg/pay?ipa=youssef@instapay" class="instapay-btn">
+            <img src="instapay.png" alt="إنستاباي">
+            تحويل مباشر عبر إنستاباي
+        </a>
+
+        <!-- الأرقام مع أزرار التحويل المباشر للمحافظ -->
+        <div class="numbers-list">
+            <!-- الرقم الأول -->
+            <div class="number-row">
+                <div class="index">01</div>
+                <div class="phone-number">01003381617</div>
+                <a href="tel:*9*7*01003381617%23" class="send-btn">
+                    <i class="fa-solid fa-paper-plane"></i> ابعت
+                </a>
+            </div>
+
+            <!-- الرقم الثاني -->
+            <div class="number-row">
+                <div class="index">02</div>
+                <div class="phone-number">01070450065</div>
+                <a href="tel:*9*7*01070450065%23" class="send-btn">
+                    <i class="fa-solid fa-paper-plane"></i> ابعت
+                </a>
+            </div>
+
+            <!-- الرقم الثالث -->
+            <div class="number-row">
+                <div class="index">03</div>
+                <div class="phone-number">01033124352</div>
+                <a href="tel:*9*7*01033124352%23" class="send-btn">
+                    <i class="fa-solid fa-paper-plane"></i> ابعت
+                </a>
+            </div>
+
+            <!-- الرقم الرابع -->
+            <div class="number-row">
+                <div class="index">04</div>
+                <div class="phone-number">01107197909</div>
+                <a href="tel:*9*7*01107197909%23" class="send-btn">
+                    <i class="fa-solid fa-paper-plane"></i> ابعت
+                </a>
+            </div>
+
+            <!-- الرقم الخامس -->
+            <div class="number-row">
+                <div class="index">05</div>
+                <div class="phone-number">01092309757</div>
+                <a href="tel:*9*7*01092309757%23" class="send-btn">
+                    <i class="fa-solid fa-paper-plane"></i> ابعت
+                </a>
+            </div>
+        </div>
+
+        <div class="bottom-section">
+            <div class="qr-container">
+                <img src="qrcode.png" alt="QR Code" class="qr-img">
+            </div>
+            <div class="scan-text">
+                <i class="fa-solid fa-mobile-screen scan-icon"></i>
+                <p>امسح الباركود<br><span style="color:var(--main-red)">لحفظ الأرقام</span></p>
+                <i class="fa-solid fa-arrow-right-long arrow-icon"></i>
+            </div>
+        </div>
+
+        <div class="footer-text">
+            .. جزاكم الله خيراً ..
+        </div>
+
+    </div>
+
+</body>
+</html>
