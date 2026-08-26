@@ -29,9 +29,9 @@
             background-color: #ffffff;
             width: 100%;
             max-width: 480px;
-            padding: 30px 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            border-radius: 15px;
+            padding: 35px 20px 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border-radius: 18px;
             position: relative;
             background-image: radial-gradient(#e0e0e0 2px, transparent 2px);
             background-size: 25px 25px;
@@ -44,14 +44,14 @@
         .logo-img { width: 100%; height: auto; max-height: 60px; object-fit: contain; }
         .round-logo { border-radius: 50%; border: 2px solid #eee; width: 60px; height: 60px; }
         .avatar-container { position: relative; }
-        .avatar { width: 140px; height: 140px; border-radius: 50%; border: 4px solid var(--main-black); padding: 5px; object-fit: cover; background-color: white; box-shadow: 0 0 0 2px var(--main-red); }
+        .avatar { width: 135px; height: 135px; border-radius: 50%; border: 4px solid var(--main-black); padding: 5px; object-fit: cover; background-color: white; box-shadow: 0 0 0 2px var(--main-red); }
 
         /* --- عنوان الصفحة --- */
-        .title-wrapper { position: relative; text-align: center; margin-bottom: 25px; }
-        .title-wrapper::before, .title-wrapper::after { content: ''; position: absolute; top: 50%; width: 15%; height: 2px; background-color: var(--main-red); }
+        .title-wrapper { position: relative; text-align: center; margin-bottom: 30px; }
+        .title-wrapper::before, .title-wrapper::after { content: ''; position: absolute; top: 50%; width: 12%; height: 2px; background-color: var(--main-red); }
         .title-wrapper::before { right: 0; }
         .title-wrapper::after { left: 0; }
-        .title { background-color: var(--main-black); color: white; display: inline-block; padding: 8px 35px; border-radius: 30px; font-size: 24px; font-weight: 900; position: relative; z-index: 2; }
+        .title { background-color: var(--main-black); color: white; display: inline-block; padding: 8px 30px; border-radius: 30px; font-size: 22px; font-weight: 900; position: relative; z-index: 2; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
         .title span { color: var(--main-red); }
 
         /* --- زرار إنستاباي الرئيسي --- */
@@ -63,68 +63,76 @@
             font-weight: 900;
             font-size: 20px;
             text-align: center;
-            padding: 10px;
+            padding: 12px;
             border-radius: 12px;
             text-decoration: none;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            gap: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.08);
             transition: all 0.3s;
             cursor: pointer;
             width: 100%;
         }
-        .instapay-btn:hover { background-color: var(--instapay-color); color: #ffffff; transform: scale(1.02); }
-        .instapay-btn img { height: 25px; object-fit: contain; }
+        .instapay-btn:hover { background-color: var(--instapay-color); color: #ffffff; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(85, 45, 130, 0.2); }
+        .instapay-btn img { height: 28px; object-fit: contain; }
 
         /* --- قسم الأرقام العادية --- */
-        .numbers-list { display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px; }
+        .numbers-list { display: flex; flex-direction: column; gap: 15px; margin-bottom: 35px; }
         .number-row { display: flex; align-items: center; direction: ltr; gap: 10px; }
-        .index { background-color: var(--main-black); color: white; font-weight: bold; font-size: 18px; width: 45px; height: 45px; display: flex; justify-content: center; align-items: center; border-radius: 8px; flex-shrink: 0; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
-        .phone-number { background: linear-gradient(to bottom, #e00000, #990000); color: white; font-weight: bold; font-size: 24px; flex-grow: 1; text-align: center; height: 50px; line-height: 50px; border-radius: 8px; box-shadow: inset 0px 3px 5px rgba(255,255,255,0.4), inset 0px -4px 5px rgba(0,0,0,0.4), 0 4px 6px rgba(0,0,0,0.2); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); z-index: 1; }
-        .send-btn { background-color: white; color: var(--main-red); border: 1px solid #ddd; font-family: 'Cairo', sans-serif; font-weight: bold; font-size: 18px; height: 46px; padding: 0 15px 0 25px; border-radius: 25px; cursor: pointer; display: flex; align-items: center; gap: 8px; margin-left: -35px; position: relative; z-index: 2; box-shadow: -4px 0px 10px rgba(0,0,0,0.3), 0px 3px 5px rgba(0,0,0,0.1); direction: rtl; text-decoration: none; transition: all 0.2s ease-in-out; }
+        .index { background-color: var(--main-black); color: white; font-weight: bold; font-size: 18px; width: 45px; height: 45px; display: flex; justify-content: center; align-items: center; border-radius: 10px; flex-shrink: 0; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
+        .phone-number { background: linear-gradient(135deg, #d31010, #990000); color: white; font-weight: bold; font-size: 24px; flex-grow: 1; text-align: center; height: 50px; line-height: 50px; border-radius: 10px; box-shadow: inset 0px 3px 5px rgba(255,255,255,0.3), inset 0px -4px 5px rgba(0,0,0,0.3), 0 4px 6px rgba(0,0,0,0.2); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); z-index: 1; letter-spacing: 1px;}
+        .send-btn { background-color: white; color: var(--main-red); border: 1px solid #ddd; font-family: 'Cairo', sans-serif; font-weight: bold; font-size: 18px; height: 46px; padding: 0 15px 0 25px; border-radius: 25px; cursor: pointer; display: flex; align-items: center; gap: 8px; margin-left: -35px; position: relative; z-index: 2; box-shadow: -4px 0px 10px rgba(0,0,0,0.15); direction: rtl; text-decoration: none; transition: all 0.2s ease-in-out; }
         .send-btn:hover { background-color: #f9f9f9; transform: scale(1.03); color: #a00000; }
         .send-btn:active { transform: scale(0.95); }
 
         /* --- الجزء السفلي (الباركود) --- */
-        .bottom-section { display: flex; justify-content: space-between; align-items: center; background-color: #fcfcfc; border: 2px solid #eee; border-radius: 15px; padding: 10px 15px; margin-bottom: 15px; direction: rtl; }
-        .qr-img { width: 100px; height: 100px; border-radius: 8px; object-fit: cover; border: 2px solid #ddd; }
+        .bottom-section { display: flex; justify-content: space-between; align-items: center; background-color: #fcfcfc; border: 2px solid #eee; border-radius: 15px; padding: 12px 15px; margin-bottom: 20px; direction: rtl; }
+        .qr-img { width: 95px; height: 95px; border-radius: 8px; object-fit: cover; border: 2px solid #ddd; }
         .scan-text { display: flex; align-items: center; gap: 15px; direction: ltr; }
-        .scan-text p { margin: 0; font-size: 18px; font-weight: bold; color: var(--main-black); text-align: center; line-height: 1.4; }
-        .scan-icon { font-size: 35px; color: var(--main-red); }
-        .arrow-icon { font-size: 24px; color: var(--main-red); }
-        .footer-text { text-align: center; font-size: 18px; font-weight: bold; color: var(--main-black); }
+        .scan-text p { margin: 0; font-size: 17px; font-weight: bold; color: var(--main-black); text-align: center; line-height: 1.5; }
+        .scan-icon { font-size: 32px; color: var(--main-red); }
+        .arrow-icon { font-size: 22px; color: var(--main-red); }
+        .footer-text { text-align: center; font-size: 17px; font-weight: bold; color: #555; }
 
         /* --- تصميم القوائم المنبثقة (Modals) --- */
-        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); z-index: 999; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; }
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); z-index: 999; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; backdrop-filter: blur(3px); }
         .modal-overlay.active { display: flex; opacity: 1; }
-        .modal-content { background-color: white; width: 90%; max-width: 420px; border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transform: translateY(20px); transition: transform 0.3s ease; direction: rtl; }
+        .modal-content { background-color: white; width: 92%; max-width: 420px; border-radius: 18px; padding: 25px 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.3); transform: translateY(20px); transition: transform 0.3s ease; direction: rtl; }
         .modal-overlay.active .modal-content { transform: translateY(0); }
-        .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 15px; }
-        .modal-header h3 { margin: 0; color: var(--instapay-color); font-weight: 900; font-size: 18px; }
-        .close-modal { font-size: 24px; color: #888; cursor: pointer; background: none; border: none; }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f0f0f0; padding-bottom: 15px; margin-bottom: 20px; }
+        .modal-header h3 { margin: 0; color: var(--main-black); font-weight: 900; font-size: 19px; }
+        .close-modal { font-size: 22px; color: #888; cursor: pointer; background: none; border: none; transition: 0.2s; }
+        .close-modal:hover { color: var(--main-red); }
         
-        .modal-option-btn { display: block; width: 100%; background-color: #f8f9fa; border: 1px solid #ddd; color: var(--main-black); font-family: 'Cairo', sans-serif; font-size: 16px; font-weight: bold; padding: 12px; margin-bottom: 10px; border-radius: 10px; cursor: pointer; text-align: right; transition: all 0.2s; text-decoration: none; }
-        .modal-option-btn:hover { background-color: var(--instapay-color); color: white; border-color: var(--instapay-color); }
-        .modal-option-btn i { margin-left: 10px; width: 20px; text-align: center; }
+        /* أزرار القائمة */
+        .modal-option-btn { display: flex; align-items: center; width: 100%; background-color: #f8f9fa; border: 1px solid #e0e0e0; color: var(--main-black); font-family: 'Cairo', sans-serif; font-size: 16px; font-weight: bold; padding: 14px 15px; margin-bottom: 12px; border-radius: 12px; cursor: pointer; text-decoration: none; transition: all 0.2s; }
+        .modal-option-btn:hover { background-color: #f0f0f0; border-color: #ccc; }
+        .modal-option-btn i { margin-left: 12px; width: 25px; text-align: center; font-size: 18px; color: #555; }
+        
+        /* زرار الـ IPA المباشر (تصميم مميز) */
+        .ipa-direct-btn { background: linear-gradient(135deg, var(--instapay-color), #402065); color: white; border: none; box-shadow: 0 4px 10px rgba(85, 45, 130, 0.3); }
+        .ipa-direct-btn i { color: white; }
+        .ipa-direct-btn:hover { background: linear-gradient(135deg, #402065, #2b1545); color: white; transform: translateY(-2px); }
 
         /* تصميم القائمة الثانية (أرقام المحافظ) */
-        .wallet-row { display: flex; justify-content: space-between; align-items: center; background-color: #f1f1f1; padding: 10px 15px; border-radius: 8px; margin-bottom: 10px; direction: ltr;}
+        .wallet-row { display: flex; justify-content: space-between; align-items: center; background-color: #f8f9fa; padding: 12px 15px; border-radius: 10px; margin-bottom: 12px; direction: ltr; border: 1px solid #eee;}
         .wallet-number { font-size: 20px; font-weight: bold; color: var(--main-black); letter-spacing: 1px; }
-        .wallet-copy-btn { background-color: var(--main-black); color: white; border: none; padding: 6px 15px; border-radius: 6px; font-family: 'Cairo'; font-weight: bold; cursor: pointer; transition: 0.2s; }
+        .wallet-copy-btn { background-color: var(--main-black); color: white; border: none; padding: 8px 18px; border-radius: 8px; font-family: 'Cairo'; font-weight: bold; cursor: pointer; transition: 0.2s; }
         .wallet-copy-btn:hover { background-color: var(--main-red); }
         
-        /* زرار "تم النسخ وافتح التطبيق" */
-        .done-open-btn { display: block; width: 100%; background-color: var(--instapay-color); color: white; border: none; font-family: 'Cairo'; font-size: 18px; font-weight: bold; padding: 12px; border-radius: 10px; margin-top: 15px; cursor: pointer; text-align: center; text-decoration: none; }
-        .done-open-btn:hover { background-color: #3f1f63; transform: scale(1.02); }
+        /* زرار إغلاق القائمة بعد النسخ */
+        .done-open-btn { display: flex; justify-content: center; align-items: center; gap: 10px; width: 100%; background-color: #f0f0f0; color: var(--main-black); border: none; font-family: 'Cairo'; font-size: 17px; font-weight: bold; padding: 14px; border-radius: 12px; margin-top: 20px; cursor: pointer; transition: 0.2s; }
+        .done-open-btn:hover { background-color: #e0e0e0; }
+        .done-open-btn i { color: var(--main-red); font-size: 20px; }
 
-        /* رسالة التأكيد (Toast) */
-        #toast { visibility: hidden; min-width: 250px; background-color: #333; color: #fff; text-align: center; border-radius: 8px; padding: 16px; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 1000; font-weight: bold; }
-        #toast.show { visibility: visible; animation: fadein 0.5s, fadeout 0.5s 2.5s; }
-        @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
-        @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+        /* رسالة التأكيد (Toast) بتصميم Modern */
+        #toast { visibility: hidden; min-width: 280px; background-color: rgba(0, 0, 0, 0.85); backdrop-filter: blur(5px); color: #fff; text-align: center; border-radius: 12px; padding: 16px 20px; position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 1000; font-weight: bold; font-family: 'Cairo'; font-size: 16px; line-height: 1.6; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        #toast.show { visibility: visible; animation: fadein 0.5s, fadeout 0.5s 3.5s; }
+        @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 40px; opacity: 1;} }
+        @keyframes fadeout { from {bottom: 40px; opacity: 1;} to {bottom: 0; opacity: 0;} }
     </style>
 </head>
 <body>
@@ -206,12 +214,12 @@
     <div id="mainInstapayModal" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>اختر طريقة التحويل</h3>
+                <h3>طرق التحويل المتاحة</h3>
                 <button onclick="closeModal('mainInstapayModal')" class="close-modal"><i class="fa-solid fa-xmark"></i></button>
             </div>
             
-            <!-- التحويل المباشر لإنستاباي بتاعك -->
-            <a href="https://ipn.eg/S/kdaqe/instapay/9xxcsf" class="modal-option-btn">
+            <!-- زرار الـ IPA (تصميم مميز) -->
+            <a href="https://ipn.eg/S/kdaqe/instapay/9xxcsf" class="modal-option-btn ipa-direct-btn">
                 <i class="fa-solid fa-bolt"></i> تحويل مباشر (Instapay ID)
             </a>
             
@@ -219,17 +227,17 @@
                 <i class="fa-solid fa-wallet"></i> تحويل لمحفظة إلكترونية
             </button>
             
-            <!-- تأكد من تغيير الأرقام دي لأرقامك الحقيقية -->
-            <button onclick="copyAndRedirect('EG12000000000000000000000000', 'الـ IBAN')" class="modal-option-btn">
-                <i class="fa-solid fa-building-columns"></i> حساب بنكي (IBAN)
+            <!-- أرقام الحسابات للنسخ -->
+            <button onclick="copyAndClose('EG12000000000000000000000000', 'الـ IBAN')" class="modal-option-btn">
+                <i class="fa-solid fa-building-columns"></i> نسخ حساب بنكي (IBAN)
             </button>
 
-            <button onclick="copyAndRedirect('1234567890', 'رقم الحساب')" class="modal-option-btn">
-                <i class="fa-solid fa-file-invoice"></i> حساب بنكي (رقم الحساب)
+            <button onclick="copyAndClose('1234567890', 'رقم الحساب')" class="modal-option-btn">
+                <i class="fa-solid fa-file-invoice"></i> نسخ حساب بنكي (عادي)
             </button>
 
-            <button onclick="copyAndRedirect('4000123456789010', 'رقم البطاقة')" class="modal-option-btn">
-                <i class="fa-solid fa-credit-card"></i> البطاقة البنكية
+            <button onclick="copyAndClose('4000123456789010', 'رقم البطاقة')" class="modal-option-btn">
+                <i class="fa-solid fa-credit-card"></i> نسخ البطاقة البنكية
             </button>
         </div>
     </div>
@@ -244,32 +252,33 @@
             
             <div class="wallet-row">
                 <span class="wallet-number">01003381617</span>
-                <button onclick="copyJustText('01003381617')" class="wallet-copy-btn">كوبي</button>
+                <button onclick="copyWalletText('01003381617')" class="wallet-copy-btn">كوبي</button>
             </div>
             <div class="wallet-row">
                 <span class="wallet-number">01070450065</span>
-                <button onclick="copyJustText('01070450065')" class="wallet-copy-btn">كوبي</button>
+                <button onclick="copyWalletText('01070450065')" class="wallet-copy-btn">كوبي</button>
             </div>
             <div class="wallet-row">
                 <span class="wallet-number">01033124352</span>
-                <button onclick="copyJustText('01033124352')" class="wallet-copy-btn">كوبي</button>
+                <button onclick="copyWalletText('01033124352')" class="wallet-copy-btn">كوبي</button>
             </div>
             <div class="wallet-row">
                 <span class="wallet-number">01107197909</span>
-                <button onclick="copyJustText('01107197909')" class="wallet-copy-btn">كوبي</button>
+                <button onclick="copyWalletText('01107197909')" class="wallet-copy-btn">كوبي</button>
             </div>
             <div class="wallet-row">
                 <span class="wallet-number">01092309757</span>
-                <button onclick="copyJustText('01092309757')" class="wallet-copy-btn">كوبي</button>
+                <button onclick="copyWalletText('01092309757')" class="wallet-copy-btn">كوبي</button>
             </div>
 
-            <!-- زرار تم النسخ وافتح إنستاباي باستخدام دالة الـ Intent المباشرة -->
-            <button class="done-open-btn" onclick="openInstapayApp(); closeModal('walletNumbersModal');">
-                <i class="fa-solid fa-check-circle"></i> تم النسخ.. افتح إنستاباي
+            <!-- زرار إغلاق القائمة بعد النسخ -->
+            <button class="done-open-btn" onclick="closeModal('walletNumbersModal')">
+                <i class="fa-solid fa-check-circle"></i> تم النسخ.. إغلاق القائمة
             </button>
         </div>
     </div>
 
+    <!-- إشعار التأكيد -->
     <div id="toast">تم النسخ!</div>
 
     <!-- ==================== السكريبت (JS) ==================== -->
@@ -287,45 +296,27 @@
             openModal('walletNumbersModal');
         }
 
-        // دالة ذكية لفتح التطبيق من غير روابط (تفتح التطبيق كأنك ضغطت على أيقونته)
-        function openInstapayApp() {
-            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-            
-            // لو الموبايل أندرويد
-            if (/android/i.test(userAgent)) {
-                // الأمر المعدل لفتح الشاشة الرئيسية مباشرة بدل الذهاب لجوجل بلاي
-                window.location.href = "intent://#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;package=com.egyptianbanks.instapay;end;";
-            } 
-            // لو آيفون
-            else {
-                window.location.href = "instapay://"; 
-            }
-        }
-
-        // دالة نسخ الرقم للمحافظ
-        function copyJustText(textToCopy) {
+        // دالة نسخ أرقام المحافظ فقط
+        function copyWalletText(textToCopy) {
             navigator.clipboard.writeText(textToCopy).then(function() {
                 var toast = document.getElementById("toast");
-                toast.innerHTML = "تم نسخ الرقم بنجاح!";
+                toast.innerHTML = "تم نسخ رقم المحفظة بنجاح! <br> افتح تطبيق إنستاباي بنفسك للصق الرقم";
                 toast.className = "show";
-                setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 2500);
+                setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 4000);
             });
         }
 
-        // دالة لنسخ الـ IBAN أو البطاقة، وبعدين تفتح التطبيق النظيف
-        function copyAndRedirect(textToCopy, typeName) {
+        // دالة نسخ الـ IBAN أو الحساب مع إغلاق القائمة أوتوماتيكياً
+        function copyAndClose(textToCopy, typeName) {
             navigator.clipboard.writeText(textToCopy).then(function() {
                 closeModal('mainInstapayModal');
                 var toast = document.getElementById("toast");
                 
-                toast.innerHTML = "تم نسخ " + typeName + "<br>جاري فتح التطبيق...";
+                toast.innerHTML = "تم نسخ " + typeName + " بنجاح! <br> افتح تطبيق إنستاباي بنفسك للصق الرقم";
                 toast.className = "show";
                 
-                // بيستنى ثانية ونص عشان الزبون يقرأ، وبعدين يفتح التطبيق
-                setTimeout(function(){ 
-                    openInstapayApp();
-                    toast.className = toast.className.replace("show", ""); 
-                }, 1500); 
+                // الإشعار بيختفي بعد 4 ثواني
+                setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 4000); 
             });
         }
     </script>
