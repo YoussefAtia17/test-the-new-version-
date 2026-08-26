@@ -161,27 +161,27 @@
             <div class="number-row">
                 <div class="index">01</div>
                 <div class="phone-number">01003381617</div>
-                <a href="tel:*9*7*01003381617%23" class="send-btn"><i class="fa-solid fa-paper-plane"></i> ابعت</a>
+                <a href="tel:*9*7*01003381617*%23" class="send-btn"><i class="fa-solid fa-paper-plane"></i> ابعت</a>
             </div>
             <div class="number-row">
                 <div class="index">02</div>
                 <div class="phone-number">01070450065</div>
-                <a href="tel:*9*7*01070450065%23" class="send-btn"><i class="fa-solid fa-paper-plane"></i> ابعت</a>
+                <a href="tel:*9*7*01070450065*%23" class="send-btn"><i class="fa-solid fa-paper-plane"></i> ابعت</a>
             </div>
             <div class="number-row">
                 <div class="index">03</div>
                 <div class="phone-number">01033124352</div>
-                <a href="tel:*9*7*01033124352%23" class="send-btn"><i class="fa-solid fa-paper-plane"></i> ابعت</a>
+                <a href="tel:*9*7*01033124352*%23" class="send-btn"><i class="fa-solid fa-paper-plane"></i> ابعت</a>
             </div>
             <div class="number-row">
                 <div class="index">04</div>
                 <div class="phone-number">01107197909</div>
-                <a href="tel:*9*7*01107197909%23" class="send-btn"><i class="fa-solid fa-paper-plane"></i> ابعت</a>
+                <a href="tel:*9*7*01107197909*%23" class="send-btn"><i class="fa-solid fa-paper-plane"></i> ابعت</a>
             </div>
             <div class="number-row">
                 <div class="index">05</div>
                 <div class="phone-number">01092309757</div>
-                <a href="tel:*9*7*01092309757%23" class="send-btn"><i class="fa-solid fa-paper-plane"></i> ابعت</a>
+                <a href="tel:*9*7*01092309757*%23" class="send-btn"><i class="fa-solid fa-paper-plane"></i> ابعت</a>
             </div>
         </div>
 
@@ -263,10 +263,10 @@
                 <button onclick="copyJustText('01092309757')" class="wallet-copy-btn">كوبي</button>
             </div>
 
-            <!-- زرار تم النسخ وافتح إنستاباي باستخدام الرابط السليم -->
-            <a href="https://ipn.eg/S/kdaqe/instapay/9xxcsf" class="done-open-btn" onclick="closeModal('walletNumbersModal')">
+            <!-- زرار تم النسخ وافتح إنستاباي باستخدام دالة الـ Intent المباشرة -->
+            <button class="done-open-btn" onclick="openInstapayApp(); closeModal('walletNumbersModal');">
                 <i class="fa-solid fa-check-circle"></i> تم النسخ.. افتح إنستاباي
-            </a>
+            </button>
         </div>
     </div>
 
@@ -287,7 +287,21 @@
             openModal('walletNumbersModal');
         }
 
-        // دالة نسخ الرقم فقط بدون توجيه أوتوماتيكي
+        // دالة ذكية لفتح التطبيق من غير روابط (تفتح التطبيق كأنك ضغطت على أيقونته)
+        function openInstapayApp() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            
+            // لو الموبايل أندرويد
+            if (/android/i.test(userAgent)) {
+                window.location.href = "intent://#Intent;package=com.egyptianbanks.instapay;end;";
+            } 
+            // لو آيفون
+            else {
+                window.location.href = "instapay://"; 
+            }
+        }
+
+        // دالة نسخ الرقم للمحافظ
         function copyJustText(textToCopy) {
             navigator.clipboard.writeText(textToCopy).then(function() {
                 var toast = document.getElementById("toast");
@@ -297,21 +311,20 @@
             });
         }
 
-        // دالة لنسخ الـ IBAN أو الحساب وفتح إنستاباي باستخدام الرابط السليم
+        // دالة لنسخ الـ IBAN أو البطاقة، وبعدين تفتح التطبيق النظيف
         function copyAndRedirect(textToCopy, typeName) {
             navigator.clipboard.writeText(textToCopy).then(function() {
                 closeModal('mainInstapayModal');
                 var toast = document.getElementById("toast");
                 
-                // رسالة بتفهم الزبون يعمل إيه عشان ميتلخبطش
-                toast.innerHTML = "تم نسخ " + typeName + "<br>جاري الفتح.. (اختر الأيقونة من فوق والصق الرقم)";
+                toast.innerHTML = "تم نسخ " + typeName + "<br>جاري فتح التطبيق...";
                 toast.className = "show";
                 
-                // توجيه للرابط السليم اللي بيفتح التطبيق بدون Error
+                // بيستنى ثانية ونص عشان الزبون يقرأ، وبعدين يفتح التطبيق
                 setTimeout(function(){ 
-                    window.location.href = "https://ipn.eg/S/kdaqe/instapay/9xxcsf"; 
+                    openInstapayApp();
                     toast.className = toast.className.replace("show", ""); 
-                }, 2000); // 2000 مللي ثانية عشان يلحق يقرأ الرسالة
+                }, 1500); 
             });
         }
     </script>
