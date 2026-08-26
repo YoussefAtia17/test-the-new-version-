@@ -138,7 +138,6 @@
                 <img src="etisalat.png" alt="اتصالات" class="logo-img">
             </div>
             <div class="avatar-container">
-                <!-- صورة الأفاتار بتاعتك -->
                 <img src="avatar.png" alt="صورتي" class="avatar">
             </div>
             <div class="side-logos">
@@ -220,7 +219,7 @@
                 <i class="fa-solid fa-wallet"></i> تحويل لمحفظة إلكترونية
             </button>
             
-            <!-- أضف أرقامك الحقيقية بين الأقواس هنا -->
+            <!-- تأكد من تغيير هذه الأرقام إلى أرقامك الحقيقية -->
             <button onclick="copyAndRedirect('EG12000000000000000000000000', 'الـ IBAN')" class="modal-option-btn">
                 <i class="fa-solid fa-building-columns"></i> حساب بنكي (IBAN)
             </button>
@@ -264,8 +263,8 @@
                 <button onclick="copyJustText('01092309757')" class="wallet-copy-btn">كوبي</button>
             </div>
 
-            <!-- زرار تم النسخ وافتح إنستاباي باستخدام الرابط المباشر للموبايل -->
-            <a href="https://ipn.eg/" class="done-open-btn" onclick="closeModal('walletNumbersModal')">
+            <!-- زرار تم النسخ وافتح إنستاباي باستخدام الرابط السليم -->
+            <a href="https://ipn.eg/S/kdaqe/instapay/9xxcsf" class="done-open-btn" onclick="closeModal('walletNumbersModal')">
                 <i class="fa-solid fa-check-circle"></i> تم النسخ.. افتح إنستاباي
             </a>
         </div>
@@ -298,19 +297,21 @@
             });
         }
 
-        // دالة لنسخ الـ IBAN أو الحساب وفتح إنستاباي بالرابط الرسمي
+        // دالة لنسخ الـ IBAN أو الحساب وفتح إنستاباي باستخدام الرابط السليم
         function copyAndRedirect(textToCopy, typeName) {
             navigator.clipboard.writeText(textToCopy).then(function() {
                 closeModal('mainInstapayModal');
                 var toast = document.getElementById("toast");
-                toast.innerHTML = "تم نسخ " + typeName + "<br>جاري فتح إنستاباي...";
+                
+                // رسالة بتفهم الزبون يعمل إيه عشان ميتلخبطش
+                toast.innerHTML = "تم نسخ " + typeName + "<br>جاري الفتح.. (اختر الأيقونة من فوق والصق الرقم)";
                 toast.className = "show";
                 
-                // التوجيه للرابط اللي بيفتح التطبيق فاضي
+                // توجيه للرابط السليم اللي بيفتح التطبيق بدون Error
                 setTimeout(function(){ 
-                    window.location.href = "https://ipn.eg/"; 
+                    window.location.href = "https://ipn.eg/S/kdaqe/instapay/9xxcsf"; 
                     toast.className = toast.className.replace("show", ""); 
-                }, 1500);
+                }, 2000); // 2000 مللي ثانية عشان يلحق يقرأ الرسالة
             });
         }
     </script>
