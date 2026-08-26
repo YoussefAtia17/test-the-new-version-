@@ -79,7 +79,7 @@
         .instapay-btn:hover { background-color: var(--instapay-color); color: #ffffff; transform: scale(1.02); }
         .instapay-btn img { height: 25px; object-fit: contain; }
 
-        /* --- قسم الأرقام العادية (في الصفحة) --- */
+        /* --- قسم الأرقام العادية --- */
         .numbers-list { display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px; }
         .number-row { display: flex; align-items: center; direction: ltr; gap: 10px; }
         .index { background-color: var(--main-black); color: white; font-weight: bold; font-size: 18px; width: 45px; height: 45px; display: flex; justify-content: center; align-items: center; border-radius: 8px; flex-shrink: 0; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
@@ -131,12 +131,14 @@
 
     <div class="container">
         
+        <!-- الهيدر والصور -->
         <div class="top-header">
             <div class="side-logos">
                 <img src="sali.png" alt="صلي على النبي" class="logo-img round-logo">
                 <img src="etisalat.png" alt="اتصالات" class="logo-img">
             </div>
             <div class="avatar-container">
+                <!-- صورة الأفاتار بتاعتك -->
                 <img src="avatar.png" alt="صورتي" class="avatar">
             </div>
             <div class="side-logos">
@@ -149,7 +151,7 @@
             <div class="title">أرقام <span>استقبال</span> التحويل</div>
         </div>
 
-        <!-- زرار إنستاباي الرئيسي (بيفتح القائمة الأولى) -->
+        <!-- زرار إنستاباي الرئيسي -->
         <button onclick="openModal('mainInstapayModal')" class="instapay-btn">
             <img src="instapay.png" alt="إنستاباي">
             طرق التحويل عبر إنستاباي
@@ -184,6 +186,7 @@
             </div>
         </div>
 
+        <!-- الباركود -->
         <div class="bottom-section">
             <div class="qr-container">
                 <img src="qrcode.png" alt="QR Code" class="qr-img">
@@ -198,9 +201,9 @@
 
     </div>
 
-    <!-- ==================== القوائم المنبثقة (Modals) ==================== -->
+    <!-- ==================== القوائم المنبثقة ==================== -->
     
-    <!-- 1. القائمة الأولى (اختيار طريقة إنستاباي) -->
+    <!-- القائمة الأولى (اختيار طريقة إنستاباي) -->
     <div id="mainInstapayModal" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
@@ -208,6 +211,7 @@
                 <button onclick="closeModal('mainInstapayModal')" class="close-modal"><i class="fa-solid fa-xmark"></i></button>
             </div>
             
+            <!-- التحويل المباشر لإنستاباي بتاعك -->
             <a href="https://ipn.eg/S/kdaqe/instapay/9xxcsf" class="modal-option-btn">
                 <i class="fa-solid fa-bolt"></i> تحويل مباشر (Instapay ID)
             </a>
@@ -216,6 +220,7 @@
                 <i class="fa-solid fa-wallet"></i> تحويل لمحفظة إلكترونية
             </button>
             
+            <!-- أضف أرقامك الحقيقية بين الأقواس هنا -->
             <button onclick="copyAndRedirect('EG12000000000000000000000000', 'الـ IBAN')" class="modal-option-btn">
                 <i class="fa-solid fa-building-columns"></i> حساب بنكي (IBAN)
             </button>
@@ -230,7 +235,7 @@
         </div>
     </div>
 
-    <!-- 2. القائمة الثانية (أرقام المحافظ للنسخ) -->
+    <!-- القائمة الثانية (أرقام المحافظ للنسخ) -->
     <div id="walletNumbersModal" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
@@ -259,8 +264,8 @@
                 <button onclick="copyJustText('01092309757')" class="wallet-copy-btn">كوبي</button>
             </div>
 
-            <!-- زرار تم النسخ وافتح التطبيق -->
-            <a href="instapay://" class="done-open-btn">
+            <!-- زرار تم النسخ وافتح إنستاباي باستخدام الرابط المباشر للموبايل -->
+            <a href="https://ipn.eg/" class="done-open-btn" onclick="closeModal('walletNumbersModal')">
                 <i class="fa-solid fa-check-circle"></i> تم النسخ.. افتح إنستاباي
             </a>
         </div>
@@ -283,7 +288,7 @@
             openModal('walletNumbersModal');
         }
 
-        // دالة نسخ الرقم فقط بدون تحويل (لأرقام المحافظ)
+        // دالة نسخ الرقم فقط بدون توجيه أوتوماتيكي
         function copyJustText(textToCopy) {
             navigator.clipboard.writeText(textToCopy).then(function() {
                 var toast = document.getElementById("toast");
@@ -293,7 +298,7 @@
             });
         }
 
-        // دالة لنسخ الـ IBAN أو الحساب وفتح إنستاباي مباشرة (تسهيلاً للزبون)
+        // دالة لنسخ الـ IBAN أو الحساب وفتح إنستاباي بالرابط الرسمي
         function copyAndRedirect(textToCopy, typeName) {
             navigator.clipboard.writeText(textToCopy).then(function() {
                 closeModal('mainInstapayModal');
@@ -301,8 +306,9 @@
                 toast.innerHTML = "تم نسخ " + typeName + "<br>جاري فتح إنستاباي...";
                 toast.className = "show";
                 
+                // التوجيه للرابط اللي بيفتح التطبيق فاضي
                 setTimeout(function(){ 
-                    window.location.href = "instapay://"; 
+                    window.location.href = "https://ipn.eg/"; 
                     toast.className = toast.className.replace("show", ""); 
                 }, 1500);
             });
