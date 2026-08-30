@@ -36,6 +36,7 @@
             background-image: radial-gradient(#e0e0e0 2px, transparent 2px);
             background-size: 25px 25px;
             border: 2px solid #eee;
+            box-sizing: border-box;
         }
 
         /* --- الهيدر --- */
@@ -56,6 +57,7 @@
 
         /* --- زرار إنستاباي الرئيسي --- */
         .instapay-btn {
+            box-sizing: border-box;
             background-color: #ffffff;
             color: var(--instapay-color);
             border: 2px solid var(--instapay-color);
@@ -88,19 +90,12 @@
         .send-btn:hover { background-color: #f9f9f9; transform: scale(1.03); color: #a00000; }
         .send-btn:active { transform: scale(0.95); }
 
-        /* --- الجزء السفلي (الباركود) --- */
-        .bottom-section { display: flex; justify-content: space-between; align-items: center; background-color: #fcfcfc; border: 2px solid #eee; border-radius: 15px; padding: 12px 15px; margin-bottom: 20px; direction: rtl; }
-        .qr-img { width: 95px; height: 95px; border-radius: 8px; object-fit: cover; border: 2px solid #ddd; }
-        .scan-text { display: flex; align-items: center; gap: 15px; direction: ltr; }
-        .scan-text p { margin: 0; font-size: 17px; font-weight: bold; color: var(--main-black); text-align: center; line-height: 1.5; }
-        .scan-icon { font-size: 32px; color: var(--main-red); }
-        .arrow-icon { font-size: 22px; color: var(--main-red); }
-        .footer-text { text-align: center; font-size: 17px; font-weight: bold; color: #555; }
+        .footer-text { text-align: center; font-size: 17px; font-weight: bold; color: #555; margin-top: 10px; }
 
         /* --- تصميم القوائم المنبثقة (Modals) --- */
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); z-index: 999; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; backdrop-filter: blur(3px); }
         .modal-overlay.active { display: flex; opacity: 1; }
-        .modal-content { background-color: white; width: 92%; max-width: 420px; border-radius: 18px; padding: 25px 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.3); transform: translateY(20px); transition: transform 0.3s ease; direction: rtl; }
+        .modal-content { box-sizing: border-box; background-color: white; width: 92%; max-width: 420px; border-radius: 18px; padding: 25px 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.3); transform: translateY(20px); transition: transform 0.3s ease; direction: rtl; }
         .modal-overlay.active .modal-content { transform: translateY(0); }
         .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f0f0f0; padding-bottom: 15px; margin-bottom: 20px; }
         .modal-header h3 { margin: 0; color: var(--main-black); font-weight: 900; font-size: 19px; }
@@ -108,7 +103,7 @@
         .close-modal:hover { color: var(--main-red); }
         
         /* أزرار القائمة */
-        .modal-option-btn { display: flex; align-items: center; width: 100%; background-color: #f8f9fa; border: 1px solid #e0e0e0; color: var(--main-black); font-family: 'Cairo', sans-serif; font-size: 16px; font-weight: bold; padding: 14px 15px; margin-bottom: 12px; border-radius: 12px; cursor: pointer; text-decoration: none; transition: all 0.2s; }
+        .modal-option-btn { box-sizing: border-box; display: flex; align-items: center; width: 100%; background-color: #f8f9fa; border: 1px solid #e0e0e0; color: var(--main-black); font-family: 'Cairo', sans-serif; font-size: 16px; font-weight: bold; padding: 14px 15px; margin-bottom: 12px; border-radius: 12px; cursor: pointer; text-decoration: none; transition: all 0.2s; }
         .modal-option-btn:hover { background-color: #f0f0f0; border-color: #ccc; }
         .modal-option-btn i { margin-left: 12px; width: 25px; text-align: center; font-size: 18px; color: #555; }
         
@@ -124,12 +119,12 @@
         .wallet-copy-btn:hover { background-color: var(--main-red); }
         
         /* زرار إغلاق القائمة بعد النسخ */
-        .done-open-btn { display: flex; justify-content: center; align-items: center; gap: 10px; width: 100%; background-color: #f0f0f0; color: var(--main-black); border: none; font-family: 'Cairo'; font-size: 17px; font-weight: bold; padding: 14px; border-radius: 12px; margin-top: 20px; cursor: pointer; transition: 0.2s; }
+        .done-open-btn { box-sizing: border-box; display: flex; justify-content: center; align-items: center; gap: 10px; width: 100%; background-color: #f0f0f0; color: var(--main-black); border: none; font-family: 'Cairo'; font-size: 17px; font-weight: bold; padding: 14px; border-radius: 12px; margin-top: 20px; cursor: pointer; transition: 0.2s; }
         .done-open-btn:hover { background-color: #e0e0e0; }
         .done-open-btn i { color: var(--main-red); font-size: 20px; }
 
         /* رسالة التأكيد (Toast) بتصميم Modern */
-        #toast { visibility: hidden; min-width: 280px; background-color: rgba(0, 0, 0, 0.85); backdrop-filter: blur(5px); color: #fff; text-align: center; border-radius: 12px; padding: 16px 20px; position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 1000; font-weight: bold; font-family: 'Cairo'; font-size: 16px; line-height: 1.6; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        #toast { box-sizing: border-box; visibility: hidden; min-width: 280px; background-color: rgba(0, 0, 0, 0.85); backdrop-filter: blur(5px); color: #fff; text-align: center; border-radius: 12px; padding: 16px 20px; position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 1000; font-weight: bold; font-family: 'Cairo'; font-size: 16px; line-height: 1.6; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
         #toast.show { visibility: visible; animation: fadein 0.5s, fadeout 0.5s 3.5s; }
         @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 40px; opacity: 1;} }
         @keyframes fadeout { from {bottom: 40px; opacity: 1;} to {bottom: 0; opacity: 0;} }
@@ -193,17 +188,6 @@
             </div>
         </div>
 
-        <!-- الباركود -->
-        <div class="bottom-section">
-            <div class="qr-container">
-                <img src="qrcode.png" alt="QR Code" class="qr-img">
-            </div>
-            <div class="scan-text">
-                <i class="fa-solid fa-mobile-screen scan-icon"></i>
-                <p>امسح الباركود<br><span style="color:var(--main-red)">لحفظ الأرقام</span></p>
-                <i class="fa-solid fa-arrow-right-long arrow-icon"></i>
-            </div>
-        </div>
         <div class="footer-text">.. جزاكم الله خيراً ..</div>
 
     </div>
@@ -225,19 +209,6 @@
             
             <button onclick="openWalletModal()" class="modal-option-btn">
                 <i class="fa-solid fa-wallet"></i> تحويل لمحفظة إلكترونية
-            </button>
-            
-            <!-- أرقام الحسابات للنسخ -->
-            <button onclick="copyAndClose('EG12000000000000000000000000', 'الـ IBAN')" class="modal-option-btn">
-                <i class="fa-solid fa-building-columns"></i> نسخ حساب بنكي (IBAN)
-            </button>
-
-            <button onclick="copyAndClose('1234567890', 'رقم الحساب')" class="modal-option-btn">
-                <i class="fa-solid fa-file-invoice"></i> نسخ حساب بنكي (عادي)
-            </button>
-
-            <button onclick="copyAndClose('4000123456789010', 'رقم البطاقة')" class="modal-option-btn">
-                <i class="fa-solid fa-credit-card"></i> نسخ البطاقة البنكية
             </button>
         </div>
     </div>
@@ -303,20 +274,6 @@
                 toast.innerHTML = "تم نسخ رقم المحفظة بنجاح! <br> افتح تطبيق إنستاباي بنفسك للصق الرقم";
                 toast.className = "show";
                 setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 4000);
-            });
-        }
-
-        // دالة نسخ الـ IBAN أو الحساب مع إغلاق القائمة أوتوماتيكياً
-        function copyAndClose(textToCopy, typeName) {
-            navigator.clipboard.writeText(textToCopy).then(function() {
-                closeModal('mainInstapayModal');
-                var toast = document.getElementById("toast");
-                
-                toast.innerHTML = "تم نسخ " + typeName + " بنجاح! <br> افتح تطبيق إنستاباي بنفسك للصق الرقم";
-                toast.className = "show";
-                
-                // الإشعار بيختفي بعد 4 ثواني
-                setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 4000); 
             });
         }
     </script>
